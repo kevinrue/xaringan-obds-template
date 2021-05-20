@@ -1,0 +1,165 @@
+---
+title: 'Title'
+subtitle: "Subtitle"
+author: "Author"
+institute: "Oxford Biomedical Data Science Training Programme"
+date: "YYYY-MM-DD (updated: `r Sys.Date()`)"
+output:
+  xaringan::moon_reader:
+    css: [default, metropolis, rladies-fonts, "my-theme.css"]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+# uncomment this line to produce HTML and PDF in RStudio:
+knit: pagedown::chrome_print
+---
+
+layout: true
+
+<div class="my-header"><img src="img/ox_brand1_pos.gif" alt="Oxford University Logo" align="right" height="90%"></div>
+
+<div class="my-footer"><span>
+Author
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+Title
+</span></div> 
+
+```{r setup, include = FALSE}
+stopifnot(requireNamespace("htmltools"))
+htmltools::tagList(rmarkdown::html_dependency_font_awesome())
+knitr::opts_chunk$set(
+  message = FALSE, warning = FALSE, error = FALSE, include = FALSE
+)
+options(width = 90)
+stopifnot(require(base))
+```
+
+```{r, load_refs, include=FALSE, cache=FALSE}
+options(htmltools.dir.version = FALSE)
+library(RefManageR)
+BibOptions(
+  check.entries = FALSE,
+  bib.style = "authoryear",
+  cite.style = "authoryear",
+  style = "markdown",
+  hyperlink = "to.doc",
+  dashed = TRUE)
+bib <- ReadBib("bibliography.bib")
+```
+
+---
+
+# Learning Objectives & Goals
+
+## Learning Goals
+
+- Goal 1.
+
+- Goal 2.
+
+## Learning Objectives
+
+- Objective 1.
+
+- Objective 2.
+
+---
+
+# Pre-requisite
+
+.x-large-list[
+- A clone of the shared GitHub repository for this course.
+
+- A working installation of [git](https://git-scm.com/).
+
+- A working installation of <i class="fab fa-git"></i>.
+
+- A clone of the shared <i class="fab fa-github"></i> GitHub repository for this course.
+
+- A working installation of [Miniconda](https://docs.conda.io/en/latest/index.html).
+
+- A working installation of [R](https://www.r-project.org/) (4.0.3).
+
+- A working installation of [RStudio](https://rstudio.com/).]
+
+---
+
+# Set up (<i class="fab fa-python"></i> Python)
+
+Use `conda.yml` to create a Conda environment for this exercise.
+
+```{bash, echo=TRUE, eval=FALSE}
+conda env create --file conda.yml --name obds-py-dimred
+```
+
+Activate the environment.
+
+```{bash, echo=TRUE, eval=FALSE}
+conda activate obds-py-dimred
+```
+
+Launch JupyterLab.
+
+```{bash, echo=TRUE, eval=FALSE}
+jupyter lab
+```
+
+Navigate to the sub-directory for today, and create a new notebook with your name,
+e.g. `kevinrue.ipynb`.
+
+---
+
+# Set up (<i class="fab fa-r-project"></i>)
+
+- Pull the `master` branch of the shared repository.
+
+> We have added some files to get you started.
+
+- In the daily sub-directory, make a copy of the `template` sub-directory with your HPC username.
+
+> e.g. `cp -R template albrecht`
+
+The resulting file structure should look like the following:
+
+```
+  OBDS_Training_May_2021/
+  |_ ID_theme/
+    |_ ID_lesson/
+      |_ template
+        |_ ... (files)
+      |_ albrecht (copied from 'template')
+        |_ ... (files)
+        |_ LESSON.Rproj
+```
+
+- Launch the RStudio project `LESSON.Rproj` in your sub-directory.
+
+---
+
+# Slide title
+
+Slide body.
+
+A reference about <i class="fab fa-r-project"></i> `r Citep(bib, "r-base")`.
+
+---
+
+# Credits
+
+- There is always someone to thank.
+
+---
+
+# Further reading
+
+- There is always something to read.
+
+---
+
+# References
+
+```{r refs, include=TRUE, echo=FALSE, results="asis"}
+PrintBibliography(bib)
+```
